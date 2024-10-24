@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @export var MAX_SPEED = 300
-@export var ACCELERATION = 100
+@export var ACCELERATION = 500
+var lives = 3
 
 @onready var axis = 0
 
@@ -25,3 +26,11 @@ func move(delta):
 	
 	# Move (without collisions?)
 	move_and_slide()
+
+
+func _on_area_2d_area_entered(area: Area2D):
+	lives -= 1
+	if lives == 0:
+		queue_free()
+	
+	
