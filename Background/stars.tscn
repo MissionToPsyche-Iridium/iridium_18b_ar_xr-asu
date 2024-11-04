@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://qjpl1h5tijew"]
+
+[ext_resource type="Script" path="res://Background/stars.gd" id="1_8si5b"]
+[ext_resource type="Texture2D" uid="uid://dgimutn20spmr" path="res://st.png" id="1_k5k5y"]
+
+[node name="Stars" type="ParallaxBackground"]
+script = ExtResource("1_8si5b")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 700)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(410, 359)
+scale = Vector2(3.20982, 3.20982)
+texture = ExtResource("1_k5k5y")

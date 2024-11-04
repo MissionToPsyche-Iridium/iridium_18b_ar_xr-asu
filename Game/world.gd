@@ -5,8 +5,6 @@ var enemyTextOne = preload("res://EnemySpriteOne.png")
 var enemyTextTwo = preload("res://EnemySpriteTwo.png")
 var enemyTextThree = preload("res://EnemySpriteThree.png")
 
-
-
 func _on_timer_timeout() -> void:
 	var debrisOne = debrisScene.instantiate()
 	var debrisTwo = debrisScene.instantiate()
