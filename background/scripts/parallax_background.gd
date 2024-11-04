@@ -1,7 +1,7 @@
 extends ParallaxBackground
 
 func _process(delta: float):
-	scroll_base_offset -= Vector2(0,100)*delta
+	scroll_base_offset -= Vector2(0,-100)*delta
 
 ## Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
