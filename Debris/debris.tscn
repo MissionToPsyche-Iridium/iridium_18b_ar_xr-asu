@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://wpgknh8a7jo5"]
 
 [ext_resource type="Script" path="res://Debris/debris.gd" id="1_n8i81"]
-[ext_resource type="Texture2D" uid="uid://bnjs6w7fciv2" path="res://icon.svg" id="2_qjg2r"]
+[ext_resource type="Texture2D" uid="uid://dsfyyhwhyjnpl" path="res://EnemySpriteOne.png" id="2_b5rwc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vs6gq"]
 radius = 19.0263
@@ -14,5 +14,6 @@ script = ExtResource("1_n8i81")
 shape = SubResource("CircleShape2D_vs6gq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.296875, 0.296875)
-texture = ExtResource("2_qjg2r")
+position = Vector2(-7.62939e-06, 0)
+scale = Vector2(1.89844, 1.89844)
+texture = ExtResource("2_b5rwc")
