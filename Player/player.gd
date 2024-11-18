@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var ACCELERATION = 500
 var lives = 3
 var deadHeart = preload("res://Dead Heart.png")
+var parts = 0
+var gameOver = false
 
 @onready var axis = 0
 
@@ -29,7 +31,7 @@ func move(delta):
 	move_and_slide()
 
 
-func _on_area_2d_area_entered(area: Area2D):
+func handleDebrisCollision():
 	if (lives == 3):
 		get_parent().get_node("HUD").get_node("LivesThree").texture = deadHeart
 	elif (lives == 2):
@@ -38,6 +40,30 @@ func _on_area_2d_area_entered(area: Area2D):
 		get_parent().get_node("HUD").get_node("LivesOne").texture = deadHeart
 	lives -= 1
 	if lives == 0:
+		gameOver = true
+		get_parent().get_node("HUD").get_node("GameOver").text = "Game Over!\nYou Lose :("
+		get_parent().get_node("HUD").get_node("GameOver").label_settings.font_color = Color(1, 0, 0, 1)
 		queue_free()
+
+func handlePartCollision():
+	parts += 1
+	get_parent().get_node("HUD").get_node("PartsCount").text = "Parts Collected: " + str(parts)
+	if (parts >= 4):
+		gameOver = true
+		get_parent().get_node("HUD").get_node("GameOver").text = "Game Over!\nYou Win! :)"
+		get_parent().get_node("HUD").get_node("GameOver").label_settings.font_color = Color(0, 1, 0, 1)
+
+func _on_area_2d_area_entered(area: Area2D):
+	if (gameOver):
+		return
+	if (area.get_meta("Type") == "debris"):
+		handleDebrisCollision()
+		area.queue_free()
+	else:
+		handlePartCollision()
+		area.queue_free()
+	
+	
+	
 	
 	

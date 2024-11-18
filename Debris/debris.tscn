@@ -9,6 +9,7 @@ radius = 19.0263
 [node name="debris" type="Area2D"]
 position = Vector2(202, 94)
 script = ExtResource("1_n8i81")
+metadata/Type = "debris"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vs6gq")
