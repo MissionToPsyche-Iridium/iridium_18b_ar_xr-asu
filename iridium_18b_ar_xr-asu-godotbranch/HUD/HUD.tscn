@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8ns7dtexd1rd"]
+
+[ext_resource type="Texture2D" uid="uid://dnpuh8l4cu5y4" path="res://Live Heart.png" id="1_hy3a2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j8jc7"]
+font_size = 57
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="LivesOne" type="Sprite2D" parent="."]
+position = Vector2(449, 28)
+texture = ExtResource("1_hy3a2")
+
+[node name="LivesTwo" type="Sprite2D" parent="."]
+position = Vector2(410, 28)
+texture = ExtResource("1_hy3a2")
+
+[node name="LivesThree" type="Sprite2D" parent="."]
+position = Vector2(371, 28)
+texture = ExtResource("1_hy3a2")
+
+[node name="PartsCount" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 350.0
+offset_bottom = 45.0
+text = "Parts Collected: 0"
+
+[node name="GameOver" type="Label" parent="."]
+offset_left = 53.0
+offset_top = 271.0
+offset_right = 436.0
+offset_bottom = 423.0
+label_settings = SubResource("LabelSettings_j8jc7")
