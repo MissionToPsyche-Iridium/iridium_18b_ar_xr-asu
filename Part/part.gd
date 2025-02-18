@@ -2,6 +2,7 @@ extends Area2D
 
 var rotationSpeed = randf_range(-0.05, 0.05)
 var speed = randf_range(1.5, 2.5)
+var partNum = 0
 
 func _process(delta: float):
 	position.y += speed

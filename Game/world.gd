@@ -6,14 +6,18 @@ var enemyTextOne = preload("res://EnemySpriteOne.png")
 var enemyTextTwo = preload("res://EnemySpriteTwo.png")
 var enemyTextThree = preload("res://EnemySpriteThree.png")
 var partDelay = 0
+var partTracker = [0, 0, 0, 0]
 var partCounter = 0 # Used for selecting the right 
 
 
 func _on_timer_timeout() -> void:
 	partDelay = partDelay + 1
-	if (partDelay >= 7):
+	if (partDelay >= 0 and partCounter < 4):
 		partDelay = 0
+		partTracker[partCounter] = 1
 		var part = partScene.instantiate()
+		partCounter = partCounter + 1
+		part.partNum = partCounter
 		part.position = Vector2(randf_range(50, 450), randf_range(-250, -50))
 		add_child(part)
 	

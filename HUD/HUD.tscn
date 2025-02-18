@@ -20,10 +20,10 @@ position = Vector2(371, 28)
 texture = ExtResource("1_hy3a2")
 
 [node name="PartsCount" type="Label" parent="."]
-offset_left = 7.0
-offset_top = 8.0
-offset_right = 350.0
-offset_bottom = 45.0
+offset_left = 14.0
+offset_top = 78.0
+offset_right = 357.0
+offset_bottom = 115.0
 text = "Parts Collected: 0"
 
 [node name="GameOver" type="Label" parent="."]
@@ -32,3 +32,19 @@ offset_top = 271.0
 offset_right = 436.0
 offset_bottom = 423.0
 label_settings = SubResource("LabelSettings_j8jc7")
+
+[node name="PartsOne" type="Sprite2D" parent="."]
+position = Vector2(29, 27)
+texture = ExtResource("1_hy3a2")
+
+[node name="PartsTwo" type="Sprite2D" parent="."]
+position = Vector2(64, 27)
+texture = ExtResource("1_hy3a2")
+
+[node name="PartsThree" type="Sprite2D" parent="."]
+position = Vector2(29, 58)
+texture = ExtResource("1_hy3a2")
+
+[node name="PartsFour" type="Sprite2D" parent="."]
+position = Vector2(64, 58)
+texture = ExtResource("1_hy3a2")

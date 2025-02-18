@@ -45,9 +45,17 @@ func handleDebrisCollision():
 		get_parent().get_node("HUD").get_node("GameOver").label_settings.font_color = Color(1, 0, 0, 1)
 		queue_free()
 
-func handlePartCollision():
+func handlePartCollision(area: Area2D):
 	parts += 1
 	get_parent().get_node("HUD").get_node("PartsCount").text = "Parts Collected: " + str(parts)
+	if (area.partNum == 1):
+		get_parent().get_node("HUD").get_node("PartsOne").texture = deadHeart
+	elif (area.partNum == 2):
+		get_parent().get_node("HUD").get_node("PartsTwo").texture = deadHeart
+	elif (area.partNum == 3):
+		get_parent().get_node("HUD").get_node("PartsThree").texture = deadHeart
+	else:
+		get_parent().get_node("HUD").get_node("PartsFour").texture = deadHeart
 	if (parts >= 4):
 		gameOver = true
 		get_parent().get_node("HUD").get_node("GameOver").text = "Game Over!\nYou Win! :)"
@@ -60,7 +68,7 @@ func _on_area_2d_area_entered(area: Area2D):
 		handleDebrisCollision()
 		area.queue_free()
 	else:
-		handlePartCollision()
+		handlePartCollision(area)
 		area.queue_free()
 	
 	
