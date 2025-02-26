@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://uvoml2hyc6ac"]
+
+[ext_resource type="Texture2D" uid="uid://df67dgg88snsh" path="res://st.png" id="1_obu1x"]
+[ext_resource type="Script" path="res://scroll_area.gd" id="2_8odon"]
+
+[sub_resource type="SystemFont" id="SystemFont_3n87j"]
+
+[sub_resource type="FontFile" id="FontFile_11np2"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/60/0/ascent = 0.0
+cache/0/60/0/descent = 0.0
+cache/0/60/0/underline_position = 0.0
+cache/0/60/0/underline_thickness = 0.0
+cache/0/60/0/scale = 1.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = 0.000956774
+
+[node name="BackGround" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 1080.0
+texture = ExtResource("1_obu1x")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="ContentPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScrollArea" type="ScrollContainer" parent="ContentPanel"]
+custom_minimum_size = Vector2(680, 1080)
+layout_mode = 0
+offset_left = 20.0
+offset_right = 700.0
+offset_bottom = 1080.0
+script = ExtResource("2_8odon")
+
+[node name="AboutText" type="RichTextLabel" parent="ContentPanel/ScrollArea"]
+custom_minimum_size = Vector2(680, 2000)
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("SystemFont_3n87j")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]
+Disclaimer
+
+This work was created in partial fulfillment of Arizona State University Capstone Course “CSE 485″. The work is a result of the Psyche Student Collaborations component of NASA’s Psyche Mission (https://psyche.asu.edu/). “Psyche: A Journey to a Metal World” [Contract number NNM16AA09C] is part of the NASA Discovery Program mission to solar system targets. Trade names and trademarks of ASU and NASA are used in this work for identification only. Their usage does not constitute an official endorsement, either expressed or implied, by Arizona State University or National Aeronautics and Space Administration. The content is solely the responsibility of the authors and does not necessarily represent the official views of ASU or NASA. 
+
+This project was developed by Team 18B as part of the ASU-NASA Psyche Student Collaborations for the Capstone Course “CSE 485″ at Arizona State University. 
+
+The team consists of: 
+Logan Spencer – Development and satellite parts research 
+Kado Kishimoto – User interface design and implementation 
+Smit Desai – Backdrop design, educational content, and integration 
+Stephanie Blossom – Visual asset creation and start screen design 
+Camden Backie – Gameplay mechanics and collision detection 
+
+
+The team worked collaboratively over multiple sprints, balancing technical development, educational content creation, and sponsor feedback to deliver a product aligned with NASA’s Psyche mission goals.
+
+
+
+[/center]"
+fit_content = true
+
+[node name="HomeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 950.0
+offset_right = 430.0
+offset_bottom = 1030.0
+theme_override_fonts/font = SubResource("FontFile_11np2")
+theme_override_font_sizes/font_size = 60
+text = "Home"
