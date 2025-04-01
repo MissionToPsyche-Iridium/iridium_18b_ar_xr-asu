@@ -7,7 +7,13 @@ var deadHeart = preload("res://Dead Heart.png")
 var parts = 0
 var gameOver = false
 
+var gammaRayNeutrSpect = preload("res://gammaRayNeutrSpect.png") #1
+var magnetometer = preload("res://magentometer.png") #2
+var multSpectImage = preload("res://multSpectImage.png") #3
+var radioScience = preload("res://radioScience.png") #4
+
 @onready var axis = 0
+
 
 func _physics_process(delta: float):
 	move(delta)
@@ -49,13 +55,13 @@ func handlePartCollision(area: Area2D):
 	parts += 1
 	get_parent().get_node("HUD").get_node("PartsCount").text = "Parts Collected: " + str(parts)
 	if (area.partNum == 1):
-		get_parent().get_node("HUD").get_node("PartsOne").texture = deadHeart
+		get_parent().get_node("HUD").get_node("PartsOne").texture = gammaRayNeutrSpect
 	elif (area.partNum == 2):
-		get_parent().get_node("HUD").get_node("PartsTwo").texture = deadHeart
+		get_parent().get_node("HUD").get_node("PartsTwo").texture = magnetometer
 	elif (area.partNum == 3):
-		get_parent().get_node("HUD").get_node("PartsThree").texture = deadHeart
+		get_parent().get_node("HUD").get_node("PartsThree").texture = multSpectImage
 	else:
-		get_parent().get_node("HUD").get_node("PartsFour").texture = deadHeart
+		get_parent().get_node("HUD").get_node("PartsFour").texture = radioScience
 	if (parts >= 4):
 		gameOver = true
 		get_parent().get_node("HUD").get_node("GameOver").text = "Game Over!\nYou Win! :)"
