@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bljyp0y1quq7d"]
+
+[ext_resource type="Script" path="res://Game/world.gd" id="1_lynes"]
+[ext_resource type="PackedScene" uid="uid://bpwtbe3go71kh" path="res://Player/player.tscn" id="1_swv1y"]
+[ext_resource type="PackedScene" uid="uid://qjpl1h5tijew" path="res://Background/stars.tscn" id="3_831ms"]
+[ext_resource type="PackedScene" uid="uid://b8ns7dtexd1rd" path="res://HUD/HUD.tscn" id="4_o611u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ntm77"]
+font_color = Color(0.137097, 0.744916, 0.876633, 0.631373)
+outline_color = Color(0.168627, 1, 1, 1)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_lynes")
+
+[node name="player" parent="." instance=ExtResource("1_swv1y")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="Stars" parent="." instance=ExtResource("3_831ms")]
+
+[node name="HUD" parent="." instance=ExtResource("4_o611u")]
+
+[node name="PartPopup" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_ntm77")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 131
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
