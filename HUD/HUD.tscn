@@ -1,6 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8ns7dtexd1rd"]
+[gd_scene load_steps=11 format=3 uid="uid://b8ns7dtexd1rd"]
 
 [ext_resource type="Texture2D" uid="uid://dnpuh8l4cu5y4" path="res://Live Heart.png" id="1_hy3a2"]
+[ext_resource type="Script" path="res://HUD/popupP.gd" id="3_8ko85"]
+[ext_resource type="Texture2D" uid="uid://pmj8hbfo10bf" path="res://bigImag.png" id="3_112go"]
+[ext_resource type="Texture2D" uid="uid://b13rbymnr28u0" path="res://bigGam.png" id="3_pxbea"]
+[ext_resource type="Script" path="res://HUD/popup.gd" id="4_d6vth"]
+[ext_resource type="Texture2D" uid="uid://dwxbilur8rjhc" path="res://newMag.png" id="4_kbs6q"]
+[ext_resource type="Texture2D" uid="uid://cwt1rrkhq1g7p" path="res://bigGrav.png" id="5_bxfkj"]
+[ext_resource type="Script" path="res://HUD/GravityButton.gd" id="7_38t2a"]
+[ext_resource type="Script" path="res://HUD/magneto.gd" id="9_2ls5q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j8jc7"]
 font_size = 57
@@ -27,10 +35,10 @@ offset_bottom = 115.0
 text = "Parts Collected: 0"
 
 [node name="GameOver" type="Label" parent="."]
-offset_left = 53.0
-offset_top = 271.0
-offset_right = 436.0
-offset_bottom = 423.0
+offset_left = 125.0
+offset_top = 150.0
+offset_right = 225.0
+offset_bottom = 250.0
 label_settings = SubResource("LabelSettings_j8jc7")
 
 [node name="PartsOne" type="Sprite2D" parent="."]
@@ -48,3 +56,106 @@ texture = ExtResource("1_hy3a2")
 [node name="PartsFour" type="Sprite2D" parent="."]
 position = Vector2(64, 58)
 texture = ExtResource("1_hy3a2")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -230.0
+offset_top = 250.0
+offset_right = -30.0
+offset_bottom = 404.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_112go")
+script = ExtResource("3_8ko85")
+
+[node name="Popup" type="Popup" parent="TextureButton2"]
+auto_translate_mode = 1
+title = "Hello"
+position = Vector2i(50, 50)
+size = Vector2i(250, 300)
+visible = true
+
+[node name="Label" type="Label" parent="TextureButton2/Popup"]
+offset_left = 25.0
+offset_right = 225.0
+offset_bottom = 300.0
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="."]
+visible = false
+offset_left = 50.0
+offset_top = 250.0
+offset_right = 250.0
+offset_bottom = 404.0
+action_mode = 0
+button_mask = 7
+texture_normal = ExtResource("3_pxbea")
+script = ExtResource("4_d6vth")
+
+[node name="Popup" type="Popup" parent="TextureButton"]
+auto_translate_mode = 1
+title = "Hello"
+position = Vector2i(50, 50)
+size = Vector2i(250, 300)
+visible = true
+
+[node name="Label" type="Label" parent="TextureButton/Popup"]
+offset_left = 25.0
+offset_right = 225.0
+offset_bottom = 300.0
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+visible = false
+offset_left = 25.0
+offset_top = 500.0
+offset_right = 225.0
+offset_bottom = 659.0
+texture_normal = ExtResource("5_bxfkj")
+script = ExtResource("7_38t2a")
+
+[node name="Popup" type="Popup" parent="TextureButton3"]
+auto_translate_mode = 1
+title = "Hello"
+position = Vector2i(50, 50)
+size = Vector2i(250, 300)
+visible = true
+
+[node name="Label" type="Label" parent="TextureButton3/Popup"]
+offset_left = 25.0
+offset_right = 225.0
+offset_bottom = 300.0
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureButton4" type="TextureButton" parent="."]
+visible = false
+offset_left = 275.0
+offset_top = 500.0
+offset_right = 475.0
+offset_bottom = 702.0
+texture_normal = ExtResource("4_kbs6q")
+script = ExtResource("9_2ls5q")
+
+[node name="Popup" type="Popup" parent="TextureButton4"]
+auto_translate_mode = 1
+title = "Hello"
+position = Vector2i(50, 50)
+size = Vector2i(250, 300)
+visible = true
+
+[node name="Label" type="Label" parent="TextureButton4/Popup"]
+offset_left = 25.0
+offset_right = 225.0
+offset_bottom = 300.0
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="TextureButton2" to="TextureButton2" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton3" to="TextureButton3" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton4" to="TextureButton4" method="_on_pressed"]

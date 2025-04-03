@@ -1,9 +1,12 @@
 extends CharacterBody2D
-
 @export var MAX_SPEED = 300
 @export var ACCELERATION = 500
 var lives = 3
 var deadHeart = preload("res://Dead Heart.png")
+var imager = preload("res://Imagero.png")
+var magneto = preload("res://magneto.png")
+var gamma = preload("res://gamma.png")
+var grav = preload("res://grav.png")
 var parts = 0
 var gameOver = false
 
@@ -47,7 +50,11 @@ func handleDebrisCollision():
 	lives -= 1
 	if lives == 0:
 		gameOver = true
-		get_parent().get_node("HUD").get_node("GameOver").text = "Game Over!\nYou Lose :("
+		get_parent().get_node("HUD").get_node("TextureButton").visible = true
+		get_parent().get_node("HUD").get_node("TextureButton2").visible = true
+		get_parent().get_node("HUD").get_node("TextureButton3").visible = true
+		get_parent().get_node("HUD").get_node("TextureButton4").visible = true
+		get_parent().get_node("HUD").get_node("GameOver").text = "You lost"
 		get_parent().get_node("HUD").get_node("GameOver").label_settings.font_color = Color(1, 0, 0, 1)
 		queue_free()
 
@@ -55,6 +62,7 @@ func handlePartCollision(area: Area2D):
 	parts += 1
 	get_parent().get_node("HUD").get_node("PartsCount").text = "Parts Collected: " + str(parts)
 	if (area.partNum == 1):
+
 		get_parent().get_node("HUD").get_node("PartsOne").texture = gammaRayNeutrSpect
 	elif (area.partNum == 2):
 		get_parent().get_node("HUD").get_node("PartsTwo").texture = magnetometer
@@ -62,9 +70,14 @@ func handlePartCollision(area: Area2D):
 		get_parent().get_node("HUD").get_node("PartsThree").texture = multSpectImage
 	else:
 		get_parent().get_node("HUD").get_node("PartsFour").texture = radioScience
+
 	if (parts >= 4):
 		gameOver = true
-		get_parent().get_node("HUD").get_node("GameOver").text = "Game Over!\nYou Win! :)"
+		get_parent().get_node("HUD").get_node("TextureButton").visible = true
+		get_parent().get_node("HUD").get_node("TextureButton2").visible = true
+		get_parent().get_node("HUD").get_node("TextureButton3").visible = true
+		get_parent().get_node("HUD").get_node("TextureButton4").visible = true
+		get_parent().get_node("HUD").get_node("GameOver").text = "You win"
 		get_parent().get_node("HUD").get_node("GameOver").label_settings.font_color = Color(0, 1, 0, 1)
 
 func _on_area_2d_area_entered(area: Area2D):
