@@ -35,16 +35,12 @@ label_settings = SubResource("LabelSettings_j8jc7")
 
 [node name="PartsOne" type="Sprite2D" parent="."]
 position = Vector2(29, 27)
-texture = ExtResource("1_hy3a2")
 
 [node name="PartsTwo" type="Sprite2D" parent="."]
 position = Vector2(64, 27)
-texture = ExtResource("1_hy3a2")
 
 [node name="PartsThree" type="Sprite2D" parent="."]
 position = Vector2(29, 58)
-texture = ExtResource("1_hy3a2")
 
 [node name="PartsFour" type="Sprite2D" parent="."]
 position = Vector2(64, 58)
-texture = ExtResource("1_hy3a2")
