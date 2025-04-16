@@ -22,7 +22,7 @@ func _on_timer_timeout() -> void:
 		var part = partScene.instantiate()
 		partCounter = partCounter + 1
 		part.partNum = partCounter
-		part.position = Vector2(randf_range(50, 450), randf_range(-250, -50))
+		part.position = Vector2(randf_range(50, 850), randf_range(-450, -50))
 		if (partCounter == 1):
 			part.get_node("Sprite2D").texture = gammaRayNeutrSpect
 		elif(partCounter == 2):
@@ -38,8 +38,8 @@ func _on_timer_timeout() -> void:
 	
 	var debrisOne = debrisScene.instantiate()
 	var debrisTwo = debrisScene.instantiate()
-	debrisOne.position = Vector2(randf_range(50, 250), randf_range(-250, -50))
-	debrisTwo.position = Vector2(randf_range(250, 450), randf_range(-250, -50))
+	debrisOne.position = Vector2(randf_range(50, 450), randf_range(-350, -50))
+	debrisTwo.position = Vector2(randf_range(450, 850), randf_range(-350, -50))
 	var rand = randi_range(1, 3)
 	if (rand == 1):
 		debrisOne.get_node("Sprite2D").texture = enemyTextOne

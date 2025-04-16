@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://coyg6fr2ynk6w"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_deah2"]
+[ext_resource type="Texture2D" uid="uid://dgimutn20spmr" path="res://st.png" id="2_cks0t"]
+[ext_resource type="FontFile" uid="uid://dkm0k6cbjlkci" path="res://arial.ttf" id="3_5d3e7"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_deah2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(296.714, 730.25)
+scale = Vector2(6.65848, 6.65848)
+texture = ExtResource("2_cks0t")
+
+[node name="Button" type="Button" parent="Control/Sprite2D"]
+offset_left = -33.0
+offset_top = 63.0
+offset_right = 90.0
+offset_bottom = 97.0
+text = "Return"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 95.0
+offset_top = 81.0
+offset_right = 853.0
+offset_bottom = 1088.0
+theme_override_fonts/normal_font = ExtResource("3_5d3e7")
+theme_override_font_sizes/normal_font_size = 41
+text = "This work was created in partial fulfillment of Arizona State University Capstone Course “CSE 486/424″. The work is a result of the Psyche Student Collaborations component of NASA’s Psyche Mission (https://psyche.asu.edu). “Psyche: A Journey to a Metal World” [Contract number NNM16AA09C] is part of the NASA Discovery Program mission to solar system targets. Trade names and trademarks of ASU and NASA are used in this work for identification only. Their usage does not constitute an official endorsement, either expressed or implied, by Arizona State University or National Aeronautics and Space Administration. The content is solely the responsibility of the authors and does not necessarily represent the official views of ASU or NASA.
+"
+
+[connection signal="pressed" from="Control/Sprite2D/Button" to="Control" method="_on_button_pressed"]
