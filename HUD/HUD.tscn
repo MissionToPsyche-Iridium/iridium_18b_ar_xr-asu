@@ -1,46 +1,142 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8ns7dtexd1rd"]
+[gd_scene load_steps=6 format=3 uid="uid://b8ns7dtexd1rd"]
 
 [ext_resource type="Texture2D" uid="uid://dnpuh8l4cu5y4" path="res://Live Heart.png" id="1_hy3a2"]
+[ext_resource type="Script" path="res://HUD/HUDcontrol.gd" id="2_tb35m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j8jc7"]
 font_size = 57
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5sdew"]
+size = Vector2(480, 1500)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypu78"]
+size = Vector2(480, 1500)
+
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="LivesOne" type="Sprite2D" parent="."]
-position = Vector2(449, 28)
+position = Vector2(910, 50)
+scale = Vector2(2, 2)
 texture = ExtResource("1_hy3a2")
 
 [node name="LivesTwo" type="Sprite2D" parent="."]
-position = Vector2(410, 28)
+position = Vector2(840, 50)
+scale = Vector2(2, 2)
 texture = ExtResource("1_hy3a2")
 
 [node name="LivesThree" type="Sprite2D" parent="."]
-position = Vector2(371, 28)
+position = Vector2(770, 50)
+scale = Vector2(2, 2)
 texture = ExtResource("1_hy3a2")
 
 [node name="PartsCount" type="Label" parent="."]
-offset_left = 14.0
-offset_top = 78.0
-offset_right = 357.0
-offset_bottom = 115.0
+offset_left = 22.0
+offset_top = -63.0
+offset_right = 365.0
+offset_bottom = -26.0
 text = "Parts Collected: 0"
 
 [node name="GameOver" type="Label" parent="."]
-offset_left = 53.0
-offset_top = 271.0
-offset_right = 436.0
-offset_bottom = 423.0
+offset_left = -595.0
+offset_top = 161.0
+offset_right = -212.0
+offset_bottom = 313.0
 label_settings = SubResource("LabelSettings_j8jc7")
 
 [node name="PartsOne" type="Sprite2D" parent="."]
-position = Vector2(29, 27)
+position = Vector2(50, 50)
+scale = Vector2(2, 2)
+
+[node name="Button" type="Button" parent="PartsOne"]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0
+metadata/_edit_use_anchors_ = true
 
 [node name="PartsTwo" type="Sprite2D" parent="."]
-position = Vector2(64, 27)
+position = Vector2(120, 50)
+scale = Vector2(2, 2)
+
+[node name="Button" type="Button" parent="PartsTwo"]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0
+metadata/_edit_use_anchors_ = true
 
 [node name="PartsThree" type="Sprite2D" parent="."]
-position = Vector2(29, 58)
+position = Vector2(50, 120)
+scale = Vector2(2, 2)
+
+[node name="Button" type="Button" parent="PartsThree"]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0
+metadata/_edit_use_anchors_ = true
 
 [node name="PartsFour" type="Sprite2D" parent="."]
-position = Vector2(64, 58)
+position = Vector2(120, 120)
+scale = Vector2(2, 2)
+
+[node name="Button" type="Button" parent="PartsFour"]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 204.0
+offset_top = 74.0
+offset_right = 735.0
+offset_bottom = 254.0
+horizontal_alignment = 1
+
+[node name="PartInfoLabel" type="Label" parent="."]
+offset_left = 63.0
+offset_top = 840.0
+offset_right = 895.0
+offset_bottom = 1217.0
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_tb35m")
+
+[node name="PlayAgain" type="Sprite2D" parent="Control"]
+position = Vector2(540, 1300)
+
+[node name="Button" type="Button" parent="Control/PlayAgain"]
+visible = false
+offset_right = 300.0
+offset_bottom = 100.0
+text = "Play Again"
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenu" type="Sprite2D" parent="Control"]
+position = Vector2(120, 1300)
+
+[node name="Button" type="Button" parent="Control/MainMenu"]
+visible = false
+offset_right = 300.0
+offset_bottom = 100.0
+text = "Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="leftButton" type="TouchScreenButton" parent="."]
+position = Vector2(240, 700)
+shape = SubResource("RectangleShape2D_5sdew")
+action = "move_left"
+
+[node name="rightButton" type="TouchScreenButton" parent="."]
+position = Vector2(720, 700)
+shape = SubResource("RectangleShape2D_ypu78")
+action = "move_right"
+
+[connection signal="pressed" from="PartsOne/Button" to="Control" method="_on_one_button_pressed"]
+[connection signal="pressed" from="PartsTwo/Button" to="Control" method="_on_two_button_pressed"]
+[connection signal="pressed" from="PartsThree/Button" to="Control" method="_on_three_button_pressed"]
+[connection signal="pressed" from="PartsFour/Button" to="Control" method="_on_four_button_pressed"]
+[connection signal="pressed" from="Control/PlayAgain/Button" to="Control" method="_on_playagain_button_pressed"]
+[connection signal="pressed" from="Control/MainMenu/Button" to="Control" method="_on_mainmenu_button_pressed"]

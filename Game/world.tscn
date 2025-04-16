@@ -9,6 +9,7 @@
 script = ExtResource("1_lynes")
 
 [node name="player" parent="." instance=ExtResource("1_swv1y")]
+position = Vector2(472, 1372)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.5
